@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcanum 2026 — Aquelarre | CUCEI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-container"></div>
+    <div id="fog-layer"></div>
+    <div id="scanlines"></div>
+    <div id="grid-overlay"></div>
+    <audio id="bg-audio" src="arcanum-bg.mp3" loop preload="auto"></audio>
+    <button id="audio-toggle" class="audio-toggle" type="button" aria-label="Activar sonido" title="Activar sonido">
+        <span class="audio-toggle-icon">&#x1F509;</span>
+    </button>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="Amarillo.png" alt="AQUELARRE 2026 · ARCANUM" class="nav-logo">
+        </div>
+        <div class="nav-links">
+            <a href="#home">Arcanum 2026</a>
+            <a href="#historia">Historia</a>
+            <a href="#realeza">La Corte</a>
+            <a href="#cronograma">Cronograma</a>
+            <a href="#convocatorias">Convocatorias</a>
+            <a href="#gala">Fiesta de Gala</a>
+            <a href="#galeria">Galería</a>
+            <a href="#redes">Redes</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+            <source src="ARCANUM.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <div class="sys-bar">
+                <span class="sys-msg">&#x25C8; ARCANUM 2026 — SISTEMA INICIALIZANDO ...</span>
+                <span class="sys-status">
+                    <span class="status-dot"></span> EN LÍNEA
+                </span>
+            </div>
+            <div class="hero-subtitle-top">
+                <span class="glitch" data-text="DE LA ALQUIMIA A LA CIENCIA">DE LA ALQUIMIA A LA CIENCIA</span>
+            </div>
+            <div id="logo-3d-container">
+                <img src="Amarillo.png" alt="AQUELARRE 2026 · ARCANUM" class="logo3d-fallback">
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line" data-text="ARCANUM 2026">ARCANUM 2026</span>
+            </h1>
+            <div class="hero-tagline">
+                <span class="typewriter" id="typewriter">Arcanum 2026 — el ciclo donde la alquimia se vuelve ciencia</span>
+            </div>
+            <div class="hero-date">
+                <div class="date-box">
+                    <span class="date-label">FECHA</span>
+                    <span class="date-value">29 OCTUBRE 2026</span>
+                </div>
+                <div class="date-divider"></div>
+                <div class="date-box">
+                    <span class="date-label">LA GRAN OBRA · GALA</span>
+                    <span class="date-value">SALÓN GRANDALA</span>
+                </div>
+            </div>
+            <div class="countdown" id="countdown">
+                <div class="count-item"><span class="count-num" id="cd-days">0</span><span class="count-label">Días</span></div>
+                <div class="count-item"><span class="count-num" id="cd-hours">0</span><span class="count-label">Horas</span></div>
+                <div class="count-item"><span class="count-num" id="cd-mins">0</span><span class="count-label">Min</span></div>
+                <div class="count-item"><span class="count-num" id="cd-secs">0</span><span class="count-label">Seg</span></div>
+            </div>
+            <div class="hero-actions">
+                <a href="#gala" class="btn btn-primary">
+                    <span class="btn-text">Asegura tu Boleto</span>
+                    <span class="btn-icon">&#x2620;</span>
+                </a>
+                <a href="#historia" class="btn btn-secondary">
+                    <span class="btn-text">Descubrir la Historia</span>
+                </a>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
+                <span>DESCENDER</span>
+            </div>
+        </div>
+        <div class="hero-bg-effects">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <div class="alchemy-circle"></div>
+        </div>
+    </section>
+
+    <section id="historia" class="section about" style="background-image: url('assets/moodboard/bg/about.jpg');">
+        <div class="section-bg-overlay"></div>
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-rune">&#x2641;</span>
+                <h2 class="section-title" data-text="HISTORIA DEL AQUELARRE">HISTORIA DEL AQUELARRE</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-intro">
+                <h3>De la Alquimia a la Ciencia</h3>
+                <p>
+                    "El Origen" es una propuesta temática inspirada en la alquimia como uno de los
+                    antecedentes históricos de la química, retomando su imaginario de misterio,
+                    transformación y búsqueda del conocimiento. El concepto parte de explorar aquello
+                    que existió antes de la química moderna: una época en la que la transformación de
+                    la materia era interpretada a través de símbolos, elementos y prácticas que
+                    mezclaban observación, filosofía y misticismo.
+                </p>
+                <p>
+                    Hoy queremos mantener las costumbres e implementar desde donde son todas nuestras
+                    raíces: <strong>su origen</strong>.
+                </p>
+            </div>
+            <div class="about-stats">
+                <div class="stat">
+                    <span class="stat-number" data-target="4">0</span>
+                    <span class="stat-label">Elementos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-target="10">0</span>
+                    <span class="stat-label">Actividades</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-target="7">0</span>
+                    <span class="stat-label">Horas de Gala</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-target="2026">0</span>
+                    <span class="stat-label">Edición</span>
+                </div>
+            </div>
+            <div class="sub-block">
+                <div class="sub-header">
+                    <span class="section-rune">&#x2623;</span>
+                    <h3 class="sub-title">LOS CUATRO ELEMENTOS</h3>
+                    <div class="section-line"></div>
+                </div>
+                <div class="element-ring">
+                    <div class="ring-deco ring-deco-1"></div>
+                    <div class="ring-deco ring-deco-2"></div>
+                    <div class="ring-core">
+                        <span class="ring-rune" id="ring-rune">&#x2623;</span>
+                        <h3 id="ring-title">FUEGO</h3>
+                        <span class="ring-sub" id="ring-sub">Transformación</span>
+                        <p id="ring-desc">Representa la energía, el calor y el cambio. La fuerza que transmuta la materia.</p>
+                    </div>
+                    <button class="medallion medallion-fire active" type="button" data-hue="fire" data-title="FUEGO" data-sub="Transformación" data-desc="Representa la energía, el calor y el cambio. La fuerza que transmuta la materia." aria-label="Fuego">
+                        <span class="medallion-icon fire-glow">
+                            <svg viewBox="0 0 100 100" class="icon-svg">
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1"/>
+                                <path d="M50 15 L58 45 L70 38 L62 55 L75 52 L60 65 L70 80 L52 70 L50 85 L47 70 L30 80 L42 65 L26 52 L38 55 L30 40 L44 45 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <button class="medallion medallion-air" type="button" data-hue="air" data-title="AIRE" data-sub="Conocimiento" data-desc="Representa lo invisible, el movimiento y la búsqueda de respuestas." aria-label="Aire">
+                        <span class="medallion-icon air-glow">
+                            <svg viewBox="0 0 100 100" class="icon-svg">
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1"/>
+                                <path d="M50 15 Q70 35 50 50 Q30 65 50 85" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M30 30 Q50 40 55 60" fill="none" stroke="currentColor" stroke-width="1"/>
+                                <path d="M70 30 Q50 45 60 70" fill="none" stroke="currentColor" stroke-width="1"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <button class="medallion medallion-water" type="button" data-hue="water" data-title="AGUA" data-sub="Vida" data-desc="Representa los líquidos, la adaptación y la vida en todas sus formas." aria-label="Agua">
+                        <span class="medallion-icon water-glow">
+                            <svg viewBox="0 0 100 100" class="icon-svg">
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1"/>
+                                <path d="M20 60 Q35 45 50 60 Q65 75 80 60" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M20 75 Q35 60 50 75 Q65 90 80 75" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M35 40 Q50 30 65 40" fill="none" stroke="currentColor" stroke-width="1"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <button class="medallion medallion-earth" type="button" data-hue="earth" data-title="TIERRA" data-sub="Materia" data-desc="Representa aquello que podemos tocar, transformar y estudiar." aria-label="Tierra">
+                        <span class="medallion-icon earth-glow">
+                            <svg viewBox="0 0 100 100" class="icon-svg">
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1"/>
+                                <path d="M25 70 L40 40 L50 55 L60 30 L75 70 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                                <line x1="20" y1="75" x2="80" y2="75" stroke="currentColor" stroke-width="1.5"/>
+                                <line x1="25" y1="60" x2="30" y2="60" stroke="currentColor" stroke-width="1"/>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                <div class="element-grid">
+                    <div class="element-mini" data-tilt>
+                        <span class="element-mini-rune" style="color: var(--fire);">&#x2623;</span>
+                        <h4>FUEGO</h4>
+                        <p>Energía, calor y cambio. La fuerza que transmuta la materia.</p>
+                    </div>
+                    <div class="element-mini" data-tilt>
+                        <span class="element-mini-rune" style="color: var(--air);">&#x2641;</span>
+                        <h4>AIRE</h4>
+                        <p>Lo invisible, el movimiento y la búsqueda de respuestas.</p>
+                    </div>
+                    <div class="element-mini" data-tilt>
+                        <span class="element-mini-rune" style="color: var(--water);">&#x2651;</span>
+                        <h4>AGUA</h4>
+                        <p>Líquidos, adaptación y vida en todas sus formas.</p>
+                    </div>
+                    <div class="element-mini" data-tilt>
+                        <span class="element-mini-rune" style="color: var(--earth);">&#x2642;</span>
+                        <h4>TIERRA</h4>
+                        <p>Aquello que podemos tocar, transformar y estudiar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="realeza" class="section royal" style="background-image: url('assets/moodboard/bg/about.jpg');">
+        <div class="section-bg-overlay"></div>
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-rune">&#x265B;</span>
+                <h2 class="section-title" data-text="LA CORTE ALQUÍMICA">LA CORTE ALQUÍMICA</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <!-- REYES (2) -->
+            <div class="royal-group">
+                <h3 class="royal-group-title">EL GRAN ALQUIMISTA · REYES</h3>
+                <div class="royal-grid">
+                    <article class="royal-card" data-tilt data-elemento="fuego" data-nombre="Aurelius Draven" data-titulo="REY" data-foto="assets/royals/aurelius-draven.svg">
+                        <div class="royal-photo"><img src="assets/royals/aurelius-draven.svg" alt="Aurelius Draven"></div>
+                        <span class="royal-tag">REY</span>
+                        <span class="royal-icon">&#x265A;</span>
+                        <h4 class="royal-name">Aurelius Draven</h4>
+                        <span class="royal-element">FUEGO · Transformación</span>
+                        <p class="royal-message">"El fuego interior transmuta el saber en poder. Tu palabra enciende los caminos de la Gran Obra."</p>
+                    </article>
+                    <article class="royal-card" data-tilt data-elemento="tierra" data-nombre="Thorne Kestrel" data-titulo="REY" data-foto="assets/royals/thorne-kestrel.svg">
+                        <div class="royal-photo"><img src="assets/royals/thorne-kestrel.svg" alt="Thorne Kestrel"></div>
+                        <span class="royal-tag">REY</span>
+                        <span class="royal-icon">&#x265A;</span>
+                        <h4 class="royal-name">Thorne Kestrel</h4>
+                        <span class="royal-element">TIERRA · Materia</span>
+                        <p class="royal-message">"De la tierra se forjan los cimientos del reino: firmeza, raíz y legado para toda la comunidad."</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- REINAS (4) -->
+            <div class="royal-group">
+                <h3 class="royal-group-title">LA CORTE · REINAS</h3>
+                <div class="royal-grid">
+                    <article class="royal-card" data-tilt data-elemento="fuego" data-nombre="Seraphina Nyx" data-titulo="REINA" data-foto="assets/royals/seraphina-nyx.svg">
+                        <div class="royal-photo"><img src="assets/royals/seraphina-nyx.svg" alt="Seraphina Nyx"></div>
+                        <span class="royal-tag">REINA</span>
+                        <span class="royal-icon">&#x265B;</span>
+                        <h4 class="royal-name">Seraphina Nyx</h4>
+                        <span class="royal-element">FUEGO · Transformación</span>
+                        <p class="royal-message">"Tu voluntad es la llama que purifica y da inicio a toda transmutación."</p>
+                    </article>
+                    <article class="royal-card" data-tilt data-elemento="aire" data-nombre="Isolde Briar" data-titulo="REINA" data-foto="assets/royals/isolde-briar.svg">
+                        <div class="royal-photo"><img src="assets/royals/isolde-briar.svg" alt="Isolde Briar"></div>
+                        <span class="royal-tag">REINA</span>
+                        <span class="royal-icon">&#x265B;</span>
+                        <h4 class="royal-name">Isolde Briar</h4>
+                        <span class="royal-element">AIRE · Conocimiento</span>
+                        <p class="royal-message">"Tus ideas vuelan libres y tu elocuencia despeja los misterios del aquelarre."</p>
+                    </article>
+                    <article class="royal-card" data-tilt data-elemento="agua" data-nombre="Lunaire Vex" data-titulo="REINA" data-foto="assets/royals/lunaire-vex.svg">
+                        <div class="royal-photo"><img src="assets/royals/lunaire-vex.svg" alt="Lunaire Vex"></div>
+                        <span class="royal-tag">REINA</span>
+                        <span class="royal-icon">&#x265B;</span>
+                        <h4 class="royal-name">Lunaire Vex</h4>
+                        <span class="royal-element">AGUA · Vida</span>
+                        <p class="royal-message">"Tu espíritu fluye y adapta: eres el manantial que sostiene a la corte."</p>
+                    </article>
+                    <article class="royal-card" data-tilt data-elemento="tierra" data-nombre="Marisol Thornhart" data-titulo="REINA" data-foto="assets/royals/marisol-thornhart.svg">
+                        <div class="royal-photo"><img src="assets/royals/marisol-thornhart.svg" alt="Marisol Thornhart"></div>
+                        <span class="royal-tag">REINA</span>
+                        <span class="royal-icon">&#x265B;</span>
+                        <h4 class="royal-name">Marisol Thornhart</h4>
+                        <span class="royal-element">TIERRA · Materia</span>
+                        <p class="royal-message">"Tu corazón es raíz: estabilidad, cuidado y alimento para el reino."</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- PRINCESAS (2) -->
+            <div class="royal-group">
+                <h3 class="royal-group-title">LA PRINCESA · PRINCESAS</h3>
+                <div class="royal-grid">
+                    <article class="royal-card" data-tilt data-elemento="agua" data-nombre="Selene Marigold" data-titulo="PRINCESA" data-foto="assets/royals/selene-marigold.svg">
+                        <div class="royal-photo"><img src="assets/royals/selene-marigold.svg" alt="Selene Marigold"></div>
+                        <span class="royal-tag">PRINCESA</span>
+                        <span class="royal-icon">&#x2655;</span>
+                        <h4 class="royal-name">Selene Marigold</h4>
+                        <span class="royal-element">AGUA · Vida</span>
+                        <p class="royal-message">"Tu luz nace del agua: intuición, dulzura y la promesa de lo que viene."</p>
+                    </article>
+                    <article class="royal-card" data-tilt data-elemento="aire" data-nombre="Cassiopeia Finch" data-titulo="PRINCESA" data-foto="assets/royals/cassiopeia-finch.svg">
+                        <div class="royal-photo"><img src="assets/royals/cassiopeia-finch.svg" alt="Cassiopeia Finch"></div>
+                        <span class="royal-tag">PRINCESA</span>
+                        <span class="royal-icon">&#x2655;</span>
+                        <h4 class="royal-name">Cassiopeia Finch</h4>
+                        <span class="royal-element">AIRE · Conocimiento</span>
+                        <p class="royal-message">"Eres el susurro que aprende, la curiosidad que abre nuevos rumbos."</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cronograma" class="section activities" style="background-image: url('assets/moodboard/bg/activities.jpg');">
+        <div class="section-bg-overlay"></div>
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-rune">&#x2620;</span>
+                <h2 class="section-title" data-text="CRONOGRAMA DE ACTIVIDADES">CRONOGRAMA DE ACTIVIDADES</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="days-grid">
+                <div class="day-col" data-tilt>
+                    <div class="day-head">
+                        <span class="day-num">DÍA 1</span>
+                    </div>
+                    <ul class="day-list">
+                        <li>
+                            <span class="day-ico">&#x1F3E2;</span>
+                            <div class="day-body">
+                                <h4>Decoración de Salones</h4>
+                                <p>El campus se transforma en un gabinete alquímico.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="day-col" data-tilt>
+                    <div class="day-head">
+                        <span class="day-num">DÍA 2</span>
+                    </div>
+                    <ul class="day-list">
+                        <li>
+                            <span class="day-ico">&#x1F690;</span>
+                            <div class="day-body">
+                                <h4>Carros Alegóricos</h4>
+                                <p>Plataformas monumentales inspiradas en grimorios y laboratorios.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="day-col" data-tilt>
+                    <div class="day-head">
+                        <span class="day-num">DÍA 3</span>
+                    </div>
+                    <ul class="day-list">
+                        <li>
+                            <span class="day-ico">&#x1F48E;</span>
+                            <div class="day-body">
+                                <h4>La Piedra Filosofal</h4>
+                                <p>Cultivo y presentación de estructuras cristalinas.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="day-col" data-tilt>
+                    <div class="day-head">
+                        <span class="day-num">DÍA 4</span>
+                    </div>
+                    <ul class="day-list">
+                        <li>
+                            <span class="day-ico">&#x1F3C2;</span>
+                            <div class="day-body">
+                                <h4>Desfile Tradicional</h4>
+                                <p>Procesión festiva con comparsas, música y estandartes.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="day-col" data-tilt>
+                    <div class="day-head">
+                        <span class="day-num">DÍA 5</span>
+                    </div>
+                    <ul class="day-list">
+                        <li>
+                            <span class="day-ico">&#x1F3AD;</span>
+                            <div class="day-body">
+                                <h4>Concurso de Disfraces</h4>
+                                <p>Caracterización científica, medieval, mística y fantástica.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="day-col" data-tilt>
+                    <div class="day-head">
+                        <span class="day-num">DÍA 6</span>
+                    </div>
+                    <ul class="day-list">
+                        <li>
+                            <span class="day-ico">&#x1F3A4;</span>
+                            <div class="day-body">
+                                <h4>Show de Talentos</h4>
+                                <p>Noche de expresión escénica y musical de la realeza.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="day-col" data-tilt>
+                    <div class="day-head">
+                        <span class="day-num">DÍA 7</span>
+                    </div>
+                    <ul class="day-list">
+                        <li>
+                            <span class="day-ico">&#x1F319;</span>
+                            <div class="day-body">
+                                <h4>Recorrido Nocturno</h4>
+                                <p>Misterio y leyendas por los pasillos de CUCEI.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="day-col" data-tilt>
+                    <div class="day-head">
+                        <span class="day-num">DÍA 8</span>
+                    </div>
+                    <ul class="day-list">
+                        <li>
+                            <span class="day-ico">&#x1F525;</span>
+                            <div class="day-body">
+                                <h4>Quema de Batas</h4>
+                                <p>Pira ceremonial con sales que tiñen el fuego.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="day-col" data-tilt>
+                    <div class="day-head">
+                        <span class="day-num">DÍA 9</span>
+                    </div>
+                    <ul class="day-list">
+                        <li>
+                            <span class="day-ico">&#x1F451;</span>
+                            <div class="day-body">
+                                <h4>Elección de la Realeza</h4>
+                                <p>Coronación según el puntaje acumulado.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="day-col" data-tilt>
+                    <div class="day-head">
+                        <span class="day-num">DÍA 10</span>
+                    </div>
+                    <ul class="day-list">
+                        <li>
+                            <span class="day-ico">&#x1F377;</span>
+                            <div class="day-body">
+                                <h4>Fiesta de Gala</h4>
+                                <p>Banquete, photocalls y entrega de reconocimientos.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="convocatorias" class="section convocatorias" style="background-image: url('assets/moodboard/bg/about.jpg');">
+        <div class="section-bg-overlay"></div>
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-rune">&#x263C;</span>
+                <h2 class="section-title" data-text="CONVOCATORIAS">CONVOCATORIAS</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="conv-grid">
+                <article class="conv-card" data-tilt>
+                    <span class="conv-num">01</span>
+                    <span class="conv-icon">&#x265A;</span>
+                    <h3>Elección de la Realeza</h3>
+                    <p>Convocatoria abierta a toda la comunidad para postularse como El Gran Alquimista o La Princesa, evaluando elocuencia, liderazgo y representación del tema.</p>
+                    <span class="conv-tag">Inscripciones abiertas</span>
+                </article>
+                <article class="conv-card" data-tilt>
+                    <span class="conv-num">02</span>
+                    <span class="conv-icon">&#x1F3AD;</span>
+                    <h3>Concurso de Disfraces</h3>
+                    <p>Inscripción individual o grupal para competir por la mejor caracterización: realismo científico, estética medieval, misticismo y fantasía.</p>
+                    <span class="conv-tag">Inscripciones abiertas</span>
+                </article>
+                <article class="conv-card" data-tilt>
+                    <span class="conv-num">03</span>
+                    <span class="conv-icon">&#x1F48E;</span>
+                    <h3>La Piedra Filosofal</h3>
+                    <p>Convocatoria académica y creativa para estudiantes que quieran cultivar y presentar estructuras cristalinas estéticas y complejas.</p>
+                    <span class="conv-tag">Inscripciones abiertas</span>
+                </article>
+                <article class="conv-card" data-tilt>
+                    <span class="conv-num">04</span>
+                    <span class="conv-icon">&#x1F3A4;</span>
+                    <h3>Show de Talentos</h3>
+                    <p>Llamado a artistas, músicos y creadores escénicos para participar en la noche de expresión durante el Aquelarre.</p>
+                    <span class="conv-tag">Fechas por anunciar</span>
+                </article>
+                <article class="conv-card" data-tilt>
+                    <span class="conv-num">05</span>
+                    <span class="conv-icon">&#x1F525;</span>
+                    <h3>Quema de Batas</h3>
+                    <p>Convocatoria para graduandos que deseen participar en la ceremonia de transmutación académica con la pira ceremonial.</p>
+                    <span class="conv-tag">Fechas por anunciar</span>
+                </article>
+                <article class="conv-card" data-tilt>
+                    <span class="conv-num">06</span>
+                    <span class="conv-icon">&#x1F690;</span>
+                    <h3>Carros Alegóricos</h3>
+                    <p>Invitación a los grupos estudiantiles para diseñar y construir las plataformas monumentales del desfile tradicional.</p>
+                    <span class="conv-tag">Fechas por anunciar</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="gala" class="section register" style="background-image: url('assets/moodboard/bg/register.jpg');">
+        <div class="section-bg-overlay"></div>
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-rune">&#x262F;</span>
+                <h2 class="section-title" data-text="FIESTA DE GALA">FIESTA DE GALA</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="register-content">
+                <div class="register-info">
+                    <h3>Fiesta de Gala · Aquelarre 2026</h3>
+                    <div class="gala-details">
+                        <div class="detail">
+                            <span class="detail-icon">&#x1F5D3;</span>
+                            <span><strong>29 de octubre de 2026</strong> · 7 horas de evento</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-icon">&#x1F3E2;</span>
+                            <span><strong>Salón Grandala</strong></span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-icon">&#x1F48E;</span>
+                            <span><strong>Preventa:</strong> inicia 21 de septiembre · Mesa para 12</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-icon">&#x2696;</span>
+                            <span><strong>Liquidación:</strong> 16 de octubre</span>
+                        </div>
+                    </div>
+                    <h4 class="gala-subtitle">Tu boleto incluye</h4>
+                    <p class="gala-list">
+                        Banquete a dos tiempos · Degustación · Bebidas sin alcohol · Decoración ·
+                        Animación · Cámara 360° · Zanqueros · Letras gigantes · Servicio y seguridad ·
+                        Valet parking · Sorpresas especiales
+                    </p>
+                    <div class="detail transport">
+                        <span class="detail-icon">&#x1F684;</span>
+                        <span><strong>Transporte:</strong> $150 por persona · Cupo limitado</span>
+                    </div>
+                    <p class="gala-note">
+                        Los recursos generados contribuirán a premios, decoración, materiales y gastos
+                        del Aquelarre 2026.
+                    </p>
+                </div>
+                <div class="reserve-panel">
+                    <div class="reserve-header">
+                        <span class="reserve-tag">ACCESO</span>
+                        <h3>Plan de Reserva</h3>
+                    </div>
+                    <div class="reserve-steps">
+                        <div class="reserve-step">
+                            <span class="step-num">01</span>
+                            <div class="step-info">
+                                <h4>Preventa</h4>
+                                <p>Aparta tu boleto o mesa a partir del <strong>21 de septiembre</strong>.</p>
+                            </div>
+                        </div>
+                        <div class="reserve-step">
+                            <span class="step-num">02</span>
+                            <div class="step-info">
+                                <h4>Liquidación</h4>
+                                <p>Completa tu pago antes del <strong>16 de octubre</strong> para garantizar tu lugar.</p>
+                            </div>
+                        </div>
+                        <div class="reserve-step">
+                            <span class="step-num">03</span>
+                            <div class="step-info">
+                                <h4>La Gran Obra</h4>
+                                <p>Vive la gala el <strong>29 de octubre</strong> en el Salón Grandala.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reserve-cta">
+                        <span class="cta-line">¿Listo para el ritual?</span>
+                        <a href="#home" class="btn btn-primary btn-full">
+                            <span class="btn-text">OBTENER ACCESO</span>
+                            <span class="btn-icon">&#x2620;</span>
+                        </a>
+                        <p class="cta-note">Boletos disponibles por el comité Aquelarre 2026.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="section gallery" style="background-image: url('assets/moodboard/bg/gallery.jpg');">
+        <div class="section-bg-overlay"></div>
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-rune">&#x2623;</span>
+                <h2 class="section-title" data-text="GALERÍA FOTOGRÁFICA">GALERÍA FOTOGRÁFICA</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item large">
+                    <img src="assets/moodboard/page1_img8.png" alt="El Origen - atmósfera alquímica">
+                    <div class="gallery-overlay">
+                        <span class="gallery-theme">EL AURA DE LA ALQUIMIA</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/moodboard/page1_img3.png" alt="Fuego - transformación">
+                    <div class="gallery-overlay">
+                        <span class="gallery-theme">FUEGO · TRANSFORMACIÓN</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/moodboard/page1_img6.png" alt="Aire - conocimiento">
+                    <div class="gallery-overlay">
+                        <span class="gallery-theme">AIRE · CONOCIMIENTO</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/moodboard/page1_img1.png" alt="Agua - vida">
+                    <div class="gallery-overlay">
+                        <span class="gallery-theme">AGUA · VIDA</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/moodboard/page1_img2.png" alt="Tierra - materia">
+                    <div class="gallery-overlay">
+                        <span class="gallery-theme">TIERRA · MATERIA</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/moodboard/page1_img7.png" alt="El Gran Alquimista">
+                    <div class="gallery-overlay">
+                        <span class="gallery-theme">EL GRAN ALQUIMISTA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="redes" class="section redes">
+        <div class="section-bg-overlay"></div>
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-rune">&#x2604;</span>
+                <h2 class="section-title" data-text="REDES SOCIALES">REDES SOCIALES</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="social-grid">
+                <a href="https://www.instagram.com/cucei.udg" target="_blank" rel="noopener" class="social-card">
+                    <span class="social-ico">&#x1F517;</span>
+                    <span class="social-name">Instagram</span>
+                    <span class="social-handle">@aquelarrecucei</span>
+                    <span class="social-cta">SEGUIR →</span>
+                </a>
+                <a href="https://www.facebook.com/cucei.udg" target="_blank" rel="noopener" class="social-card">
+                    <span class="social-ico">&#x1F517;</span>
+                    <span class="social-name">Facebook</span>
+                    <span class="social-handle">Aquelarre CUCEI</span>
+                    <span class="social-cta">SEGUIR →</span>
+                </a>
+                <a href="https://www.tiktok.com/@cucei" target="_blank" rel="noopener" class="social-card">
+                    <span class="social-ico">&#x1F517;</span>
+                    <span class="social-name">TikTok</span>
+                    <span class="social-handle">@aquelarrecucei</span>
+                    <span class="social-cta">SEGUIR →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="footer-rune">&#x2625;</span>
+                <span>AQUELARRE 2026 · ARCANUM</span>
+            </div>
+            <div class="footer-info">
+                <p>Comité Aquelarre 2026 · CUCEI · Universidad de Guadalajara</p>
+                <p>S. Delgado · J.A. Gallegos · A.P. García · M.S. Jiménez</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aquelarre CUCEI · De la Alquimia a la Ciencia. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div class="royal-modal" id="royal-modal" role="dialog" aria-modal="true">
+        <div class="royal-modal-card">
+            <button class="royal-modal-close" aria-label="Cerrar">&times;</button>
+            <div class="royal-modal-photo"><img src="assets/royals/seraphina-nyx.svg" alt=""></div>
+            <span class="royal-modal-tag">REINA</span>
+            <h4 class="royal-modal-name">Seraphina Nyx</h4>
+            <span class="royal-modal-element">FUEGO · Transformación</span>
+            <div class="royal-modal-info"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
