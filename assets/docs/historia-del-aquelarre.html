@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Historia del Aquelarre · Arcanum 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'EB Garamond', Georgia, serif; background: #05080f; color: #e8e6f0; }
+  .page {
+    position: relative; width: 210mm; min-height: 297mm; padding: 21mm 21mm 16mm;
+    background: linear-gradient(160deg, #0a1024 0%, #05080f 55%, #0d0720 100%);
+    page-break-after: always; overflow: hidden;
+  }
+  .page:last-child { page-break-after: auto; }
+  .page::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(190,151,223,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(190,151,223,.05) 1px, transparent 1px);
+    background-size: 26px 26px;
+  }
+  .frame { position: absolute; inset: 11mm 11mm; border: 1px solid rgba(190,151,223,.22); pointer-events: none; }
+  .frame::before, .frame::after { content: ''; position: absolute; width: 16px; height: 16px; border: 2px solid #e5b675; }
+  .frame::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+  .frame::after { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+  .content { position: relative; z-index: 2; }
+  .mono { font-family: 'Courier New', monospace; font-size: 7.5pt; letter-spacing: 3px; text-transform: uppercase; color: #4d9fd6; }
+  h1 { font-family: 'Cinzel Decorative', Georgia, serif; font-size: 29pt; letter-spacing: 3px; margin: 5mm 0 3mm; color: #fff; text-shadow: 0 0 26px rgba(190,151,223,.55); }
+  h2 { font-family: 'Cinzel Decorative', Georgia, serif; font-size: 18pt; letter-spacing: 2px; color: #be97df; margin: 0 0 1mm; text-shadow: 0 0 18px rgba(190,151,223,.45); }
+  h3 { font-family: 'Cinzel Decorative', Georgia, serif; font-size: 12pt; letter-spacing: 1.6px; color: #e5b675; margin: 6mm 0 2mm; }
+  p { font-family: 'EB Garamond', Georgia, serif; font-size: 11pt; line-height: 1.6; color: #cfccdc; margin: 0 0 3.4mm; text-align: justify; }
+  p strong { color: #e5b675; }
+  .lead { font-size: 12pt; color: #dcd9e8; }
+  .tag { display: inline-block; border: 1px solid rgba(229,182,117,.45); color: #e5b675; padding: 1.2mm 3mm; border-radius: 2px; font-family: 'Courier New', monospace; font-size: 7pt; letter-spacing: 2.5px; }
+  .rule { height: 1px; background: linear-gradient(90deg, transparent, #e5b675, #be97df, #4d9fd6, transparent); margin: 4.5mm 0; }
+  .note { font-size: 9.5pt; color: #8f8aa8; font-style: italic; text-align: left; }
+  a { color: #7ab8e8; text-decoration: none; }
+  a.toc-link { color: #e8e6f0; text-decoration: none; }
+  .cover { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 260mm; }
+  .cover .seal { width: 34mm; height: 34mm; border: 1px solid rgba(229,182,117,.6); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 8mm; box-shadow: 0 0 30px rgba(229,182,117,.25), inset 0 0 25px rgba(143,98,181,.25); }
+  .cover .seal span { font-size: 20pt; color: #e5b675; }
+  .cover h1 { margin: 4mm 0 3mm; }
+  .cover .sub { font-family: 'EB Garamond', Georgia, serif; font-size: 13pt; color: #cfccdc; margin: 0 0 1.5mm; }
+  .cover .meta { margin-top: 12mm; font-family: 'Courier New', monospace; font-size: 8.5pt; letter-spacing: 2px; color: #8f8aa8; line-height: 2; }
+  .cover .created { margin-top: 11mm; font-family: 'Courier New', monospace; font-size: 8pt; letter-spacing: 3px; text-transform: uppercase; color: #be97df; }
+  .toc { margin-top: 5mm; }
+  .toc-item { display: flex; align-items: baseline; gap: 3.5mm; padding: 3.4mm 4mm; margin-bottom: 2.6mm; border: 1px solid rgba(190,151,223,.18); border-radius: 3px; background: rgba(20,30,56,.45); }
+  .toc-num { font-family: 'Cinzel Decorative', Georgia, serif; font-size: 13pt; color: #e5b675; min-width: 11mm; }
+  .toc-txt { font-family: 'EB Garamond', Georgia, serif; font-size: 12.5pt; color: #e8e6f0; line-height: 1.3; }
+  .toc-sub { display: block; font-family: 'Courier New', monospace; font-size: 7.5pt; letter-spacing: 1.5px; color: #8f8aa8; text-transform: uppercase; margin-top: 1mm; }
+  .refs { list-style: none; margin: 0; padding: 0; counter-reset: ref; }
+  .refs li { counter-increment: ref; position: relative; padding-left: 9mm; margin-bottom: 3.4mm; font-size: 9.5pt; line-height: 1.5; color: #b9b6c9; text-align: left; }
+  .refs li::before { content: counter(ref, decimal-leading-zero); position: absolute; left: 0; top: 0.2mm; font-family: 'Cinzel Decorative', Georgia, serif; font-size: 9.5pt; color: #e5b675; }
+  .refs .who { color: #e8e6f0; }
+  .refs .src { font-style: italic; }
+  .refs a { color: #7ab8e8; word-break: break-all; }
+  .backtop { position: absolute; right: 16mm; bottom: 9mm; font-family: 'Courier New', monospace; font-size: 7pt; letter-spacing: 2px; color: #6f6a88; z-index: 3; }
+</style>
+</head>
+<body>
+<!-- ===== PORTADA ===== -->
+<div class="page">
+  <div class="frame"></div>
+  <div class="content cover">
+    <div class="seal"><span>&#x2623;</span></div>
+    <span class="tag">CUCEI · ARCANUM</span>
+    <h1>HISTORIA DEL<br>AQUELARRE</h1>
+    <p class="sub">Orígenes de la Alquimia · Nacimiento de la Química</p>
+    <p class="sub" style="font-size:11.5pt; color:#a8a4bd">De la Facultad de Ciencias Químicas a la tradición del Aquelarre 2026</p>
+    <div class="rule" style="width:55%"></div>
+    <p class="lead" style="max-width:130mm">La historia de la alquimia, el nacimiento de la química<br>y los orígenes del Aquelarre en la Universidad de Guadalajara.</p>
+    <div class="meta">
+      Comité Aquelarre 2026 · CUCEI<br>
+      Universidad de Guadalajara<br>
+      S. Delgado · J.A. Gallegos · A.P. García · M.S. Jiménez
+    </div>
+    <div class="created">Created by CTA CUCEI</div>
+  </div>
+</div>
+
+<!-- ===== ÍNDICE ===== -->
+<div class="page" id="indice">
+  <div class="frame"></div>
+  <div class="content">
+    <span class="mono">Contenido</span>
+    <h2>ÍNDICE</h2>
+    <div class="rule"></div>
+    <p class="note">Documento interactivo: pulsa cualquier punto del índice para saltar a la sección.</p>
+    <div class="toc">
+      <a class="toc-link" href="#alquimia"><div class="toc-item"><span class="toc-num">01</span><span class="toc-txt">Orígenes de la Alquimia<span class="toc-sub">Egipto · Alejandría · Mundo islámico · Europa</span></span></div></a>
+      <a class="toc-link" href="#quimica"><div class="toc-item"><span class="toc-num">02</span><span class="toc-txt">Nacimiento de la Química<span class="toc-sub">Paracelso · Boyle · Lavoisier · Mendeléyev</span></span></div></a>
+      <a class="toc-link" href="#inicios"><div class="toc-item"><span class="toc-num">03</span><span class="toc-txt">Inicios del Aquelarre en la Facultad de Ciencias Químicas<span class="toc-sub">1925 – 1961 · El primer convivio y el desfile</span></span></div></a>
+      <a class="toc-link" href="#hoy"><div class="toc-item"><span class="toc-num">04</span><span class="toc-txt">El Aquelarre hoy<span class="toc-sub">La tradición y sus temáticas</span></span></div></a>
+      <a class="toc-link" href="#referencias"><div class="toc-item"><span class="toc-num">05</span><span class="toc-txt">Referencias<span class="toc-sub">Fuentes consultadas · enlaces activos</span></span></div></a>
+      <a class="toc-link" href="#referencias2"><div class="toc-item"><span class="toc-num">05</span><span class="toc-txt">Referencias (continuación)</span></div></a>
+    </div>
+  </div>
+  <a class="backtop" href="#indice">&#x21B5; Índice</a>
+</div>
+<!-- ===== 01 ORÍGENES DE LA ALQUIMIA ===== -->
+<div class="page" id="alquimia">
+  <div class="frame"></div>
+  <div class="content">
+    <span class="mono">01 · Orígenes</span>
+    <h2>Orígenes de la Alquimia</h2>
+    <div class="rule"></div>
+
+    <p>La alquimia nació mucho antes de que existiera la ciencia. Cuando los primeros pueblos se reunieron en comunidades y aprendieron los oficios del fuego, moldear el barro y modificar los elementos naturales, descubrieron que la materia tenía su propia magia: un metal fundido cambiaba de color al mezclarse con otro, y una misma sustancia podía mostrarse bajo formas muy distintas.</p>
+
+    <p>Sin método ni laboratorio que lo explicara, el mundo respondía con mitos. Cada elemento se vinculó con un astro y con una divinidad, y el taller se volvió un espacio donde la técnica y la creencia caminaban juntas. De esa unión nació la gran aspiración alquímica: transformar los metales comunes en oro.</p>
+
+    <p>Su forma occidental suele rastrearse hasta el Egipto helenístico, donde Alejandría fue un centro de conocimiento alquímico durante gran parte de los períodos griego y romano. Los textos conservados más antiguos datan de los primeros siglos de nuestra era y muchos fueron atribuidos a autores legendarios. Zósimo de Panópolis, que escribió entre finales del siglo III y el IV, es el primer autor identificable de la alquimia griega. Aunque él atribuía el arte al Egipto faraónico y a sus sacerdotes, hay poca o ninguna evidencia que respalde esa afirmación. Tras sofocar una revuelta en Alejandría, el emperador Diocleciano ordenó quemar libros de alquimia, y muchos escritos se perdieron.</p>
+
+    <h3>El nombre y la transmisión</h3>
+
+    <p>El origen de la palabra también se discute. Puede derivar de «Khemia», antiguo nombre de Egipto asociado a su tierra negra, o de un término griego relacionado con «verter». Los árabes le antepusieron el artículo al-, y el arte entró a Europa a través de la España árabe. En el mundo islámico, Jabir propuso que los metales se componían de azufre y mercurio, y Al-Razi (Rhazes) describió aparatos y procesos como la destilación, la sublimación y la calcinación, y clasificó las sustancias en animales, vegetales y minerales. Muchas palabras de la ciencia actual, como alcohol, álcali o elixir, vienen del árabe.</p>
+
+    <p>En Europa, las traducciones del siglo XII de obras científicas islámicas dieron origen a una floreciente alquimia latina. Figuras como Alberto Magno la veían como una vía novedosa para conocer la materia. A partir de 1317, el papa Juan XXII la prohibió oficialmente, lo que la empujó a la clandestinidad sin acabar con su atractivo. Mientras buscaban la piedra filosofal y el elixir de la vida, los alquimistas acumularon conocimiento sobre sustancias y procedimientos, y sus elixires acercaron la alquimia a la medicina y la farmacia.</p>
+  </div>
+  <a class="backtop" href="#indice">&#x21B5; Índice</a>
+</div>
+<!-- ===== 02 NACIMIENTO DE LA QUÍMICA ===== -->
+<div class="page" id="quimica">
+  <div class="frame"></div>
+  <div class="content">
+    <span class="mono">02 · Ciencia</span>
+    <h2>Nacimiento de la Química</h2>
+    <div class="rule"></div>
+
+    <p>El paso de la alquimia a la química fue gradual. Hacia 1600, el sentido estrictamente científico pasó a la palabra chemistry, y la alquimia quedó asociada a la búsqueda de la transmutación y la panacea.</p>
+
+    <p>Un primer giro vino con Paracelso (1493-1541). Él y sus seguidores, los iatroquímicos, sostenían que el fin más importante de la química era producir medicamentos. Esa idea tiene un vínculo directo con las carreras que hoy celebran el Aquelarre.</p>
+
+    <p>Después, Robert Boyle (1627-1691), alquimista irlandés, sentó las bases de la revolución química con su enfoque corpuscular de la materia. Su método basado en observación y experimentación marcó el nacimiento de la química como ciencia distinta de la alquimia y la filosofía natural.</p>
+
+    <p>El punto de quiebre fue Antoine-Laurent Lavoisier. En 1789 publicó el Tratado elemental de química, que contiene la primera tabla de sustancias simples en sentido moderno y explica la combustión, invalidando la teoría del flogisto. Allí estableció la ley de conservación de la masa, y su nueva nomenclatura reemplazó la maraña de nombres que se usaba hasta entonces. Lavoisier murió en la guillotina durante la Revolución Francesa. Ya consolidada como ciencia, la química permitió a Mendeléyev crear la primera tabla periódica moderna.</p>
+  </div>
+  <a class="backtop" href="#indice">&#x21B5; Índice</a>
+</div>
+
+<!-- ===== 03 INICIOS DEL AQUELARRE ===== -->
+<div class="page" id="inicios">
+  <div class="frame"></div>
+  <div class="content">
+    <span class="mono">03 · Orígenes</span>
+    <h2>Inicios del Aquelarre en la Facultad de Ciencias Químicas</h2>
+    <div class="rule"></div>
+
+    <p>La enseñanza farmacéutica y química en la UdeG tiene una larga historia institucional. En 1925, con la refundación de la Universidad, nació la Facultad de Farmacia. En 1934 se creó la Facultad de Ingenierías y Ciencias Químicas y en 1937 la Facultad de Ciencias Químicas con identidad propia. En 1949 pasó al Instituto Tecnológico de Guadalajara y en 1994, con el modelo departamental, se constituyó el CUCEI.</p>
+
+    <p>La palabra aquelarre viene del vasco <em>aker</em> (macho cabrío) y <em>larre</em> (prado), y designa la reunión nocturna de brujas y brujos. Los químicos la adoptaron con humor y orgullo: como explican los propios estudiantes, la celebración recuerda que, por los antecedentes de la química, antes se les consideraba brujos.</p>
+    <p>La tradición se remonta a 1961. Las actividades se organizaron desde ese año y comenzaron con estudiantes de la carrera de Químico Farmacobiólogo. Según relatan algunos profesores, la idea fue de un pequeño grupo de estudiantes quienes organizaron un convivio en octubre. Incluso sugieren que como muchos alumnos venían del noroeste del país, tenían muy arraigadas las tradiciones anglosajonas por eso lo vincularon con el último jueves de octubre.</p>
+
+    <h3>El desfile y las costumbres</h3>
+
+    <p>El Aquelarre nació como un modesto convivio en los jardines detrás del edificio de Ciencias Químicas, entre los módulos E, F y H, con grandes cazos iluminados por lumbradas y un jardín convertido en pista de baile. Pronto apareció el desfile de disfraces. Al principio dominaba el de bruja, porque había una gran proporción de mujeres en la carrera, y después llegaron hechiceros, demonios, elfos y otras criaturas. Los estudiantes armaban carros alegóricos y decoraban bicicletas con listones, cartulinas y papel para recorrer el antiguo complejo Tecnológico.</p>
+
+    <p>La popularidad trajo más asistentes, incluso de otras escuelas, y con ellos problemas de orden. A principios de los años setenta el desfile salió a las calles, primero hacia la Plaza de Armas y después hacia la Rectoría. Tras las obras de la Línea 2 del Tren Ligero y el aumento del tránsito, la ruta quedó por boulevard Marcelino García Barragán, Plaza de la Bandera, calle Cuitláhuac y avenida La Paz hasta Enrique Díaz de León.</p>
+
+    <p>Alrededor del desfile se formaron otras costumbres: la elección de la reina del Aquelarre, que en sus inicios se decidía vendiendo papeletas para recaudar fondos para obras de la carrera, la venta de comida típica elaborada por estudiantes y sus familias, y desde el año 2000 la quema de batas, retomada de la antigua costumbre de los próximos a egresar de quemar sus batas de laboratorio al terminar la carrera.</p>
+  </div>
+  <a class="backtop" href="#indice">&#x21B5; Índice</a>
+</div>
+
+<!-- ===== 04 EL AQUELARRE HOY ===== -->
+<div class="page" id="hoy">
+  <div class="frame"></div>
+  <div class="content">
+    <span class="mono">04 · Hoy</span>
+    <h2>El Aquelarre hoy</h2>
+    <div class="rule"></div>
+
+    <p>El Aquelarre actualmente se conmemora el último jueves de octubre, con un desfile que sale del CUCEI y llega a la zona de Rectoría de la UdeG. Antes se realizan la quema de batas, concursos de talentos y la premiación de reinas y reyes estudiantiles. Si bien la organización recae en los estudiantes y profesores de la Licenciatura en Químico Farmacéutico Biólogo, también se hace extensiva la invitación a participar a las comunidades de Licenciatura en Química, Ingeniería en Química e Ingeniería en Alimentos y Biotecnología. No se trata de celebrar el Día de Muertos ni Halloween, sino de dar identidad y pertenencia al alumnado.</p>
+
+    <p>Cada edición tiene una temática que guía disfraces y carros alegóricos, y recientemente ha sido muy variada. En 2022, tras dos ediciones virtuales por la pandemia, el Aquelarre Völva regresó a las calles con mitología nórdica. En 2023 el tema fue «Camino al Mictlán» haciendo alusión a nuestras raíces prehispánicas. En 2024 fue Samhain, la festividad celta que marcaba el fin de la cosecha. Finalmente, en 2025, llevó el tema «Sabbat» y las cuatro estaciones. Ese año coincidió con el centenario de la licenciatura: la carrera de QFB cumplió un siglo en el marco de 1925-2025.</p>
+
+    <p>Hoy el Aquelarre sigue siendo una forma lúdica de conocer la historia de la química y de celebrar, como dice la comunidad, a los antiguos alquimistas.</p>
+  </div>
+  <a class="backtop" href="#indice">&#x21B5; Índice</a>
+</div>
+<!-- ===== 05 REFERENCIAS (1) ===== -->
+<div class="page" id="referencias">
+  <div class="frame"></div>
+  <div class="content">
+    <span class="mono">05 · Bibliografía</span>
+    <h2>Referencias</h2>
+    <div class="rule"></div>
+    <ul class="refs">
+      <li><span class="who">Cortez-Álvarez, C., Fierros-Uribe, D., Escutia-Gutiérrez, R., Muñoz-Almaguer, M. L., &amp; Franco-Rodríguez, N. (2025).</span> <span class="src">Un siglo de pensar y trabajar: Licenciatura en Químico Farmacéutico Biólogo en la Universidad de Guadalajara.</span> Quimiofilia, 4(2), 1-6. <a href="http://divulgacionlibre.quimiofilia.com/2025/un-siglo-de-pensar-y-trabajar-licenciatura-en-quimico-farmaceutico-biologo-en-la-universidad-de-guadalajara/">divulgacionlibre.quimiofilia.com</a></li>
+      <li><span class="who">Montiel González, A. (30 de octubre de 2025).</span> <span class="src">Con «Sabbat», comunidad del CUCEI celebra Aquelarre 53.</span> Gaceta UdeG. <a href="https://www.gaceta.udg.mx/con-sabbat-comunidad-del-cucei-celebra-aquelarre-53/">gaceta.udg.mx</a></li>
+      <li><span class="who">Comunicación Social UdeG (2025).</span> <span class="src">Con «Sabbat», comunidad del CUCEI celebra Aquelarre 53.</span> <a href="https://comsoc.udg.mx/noticia/con-sabbat-comunidad-del-cucei-celebra-aquelarre-53">comsoc.udg.mx</a></li>
+      <li><span class="who">Comunicación Social UdeG (2025).</span> <span class="src">Desfile del Aquelarre 2025, tradición universitaria con más de 50 años de existencia.</span> <a href="https://comsoc.udg.mx/actividades/desfile-del-aquelarre-2025-tradicion-universitaria-con-mas-de-50-anos-de-existencia">comsoc.udg.mx</a></li>
+      <li><span class="who">Gaceta UdeG (2022).</span> <span class="src">CUCEI regresa a las calles con su «Aquelarre».</span> <a href="http://www.gaceta.udg.mx/cucei-regresa-a-las-calles-con-su-aquelarre/">gaceta.udg.mx</a></li>
+      <li><span class="who">Milenio (2022).</span> <span class="src">Llevan a cabo «Aquelarre» estudiantes de CUCEI en calles de Guadalajara.</span> <a href="https://www.milenio.com/politica/comunidad/aquelarre-es-celebrado-por-estudiantes-de-cucei">milenio.com</a></li>
+      <li><span class="who">Tráfico ZMG (2021).</span> <span class="src">Estudiantes de CUCEI no montarán el «Aquelarre» este año.</span> <a href="https://traficozmg.com/2021/10/estudiantes-de-cucei-no-montaran-el-aquelarre-este-ano/">traficozmg.com</a></li>
+      <li><span class="who">El Diario NTR (26 de octubre de 2023).</span> <span class="src">Criaturas del Mictlán caminan por Guadalajara por Aquelarre.</span> <a href="https://ntrguadalajara.com/post.php?id_nota=205074">ntrguadalajara.com</a></li>
+      <li><span class="who">El Diario NTR (31 de octubre de 2024).</span> <span class="src">Con aquelarre CUCEI rememora orígenes de químicos.</span> <a href="https://www.ntrguadalajara.com/post.php?id_nota=221461">ntrguadalajara.com</a></li>
+      <li><span class="who">Gaceta UdeG (2025).</span> <span class="src">Cuando la ciencia se disfraza de magia [Aquelarre 2025 en CUCiénega].</span> <a href="https://www.gaceta.udg.mx/aquelarre-ocotlan/">gaceta.udg.mx</a></li>
+      <li><span class="who">CUCEI (2014).</span> <span class="src">CUCEI prepara su tradicional desfile Aquelarre.</span> <a href="https://www.cucei.udg.mx/es/noticia/cucei-prepara-su-tradicional-desfile-aquelarre">cucei.udg.mx</a></li>
+    </ul>
+  </div>
+  <a class="backtop" href="#indice">&#x21B5; Índice</a>
+</div>
+<!-- ===== 05b REFERENCIAS (2) ===== -->
+<div class="page" id="referencias2">
+  <div class="frame"></div>
+  <div class="content">
+    <span class="mono">05 · Bibliografía</span>
+    <h2>Referencias (continuación)</h2>
+    <div class="rule"></div>
+    <ul class="refs" start="12">
+      <li><span class="who">Comunicación Social UdeG (2013).</span> <span class="src">Invaden brujas, zombies y monstruos calles de la ciudad.</span> <a href="https://comsoc.udg.mx/printpdf/32318">comsoc.udg.mx</a></li>
+      <li><span class="who">Comunicación Social UdeG (2018).</span> <span class="src">Tradicional desfile del Aquelarre en su edición número 57.</span> <a href="https://comsoc.udg.mx/actividades/tradicional-desfile-del-aquelarre-en-su-edicion-numero-57">comsoc.udg.mx</a></li>
+      <li><span class="who">Comunicación Social UdeG (2019).</span> <span class="src">Desfile del Aquelarre en su edición número 58.</span> <a href="https://comsoc.udg.mx/actividades/desfile-del-aquelarre-en-su-edicion-numero-58">comsoc.udg.mx</a></li>
+      <li><span class="who">Academia-Lab.</span> <span class="src">Alquimia.</span> <a href="https://academia-lab.com/enciclopedia/alquimia/">academia-lab.com</a></li>
+      <li><span class="who">Dufault, O. (2022).</span> <span class="src">¿Zósimo de Panópolis fue cristiano?</span> Arys, 20. <a href="https://e-revistas.uc3m.es/index.php/ARYS/article/download/6795/5727">e-revistas.uc3m.es</a></li>
+      <li><span class="who">Online Etymology Dictionary.</span> <span class="src">Alkahest / alchemist.</span> <a href="https://www.etymonline.com/es/word/alkahest">etymonline.com</a></li>
+      <li><span class="who">Que.es (2021).</span> <span class="src">Qué es la alquimia.</span> <a href="https://www.que.es/2021/03/03/que-es-alquimia/">que.es</a></li>
+      <li><span class="who">Universidad de Navarra, Facultad de Ciencias.</span> <span class="src">De la Alquimia a la Química.</span> <a href="https://www.unav.edu/documents/1807770/2776220/Alquimia_Quimica.pdf">unav.edu</a></li>
+      <li><span class="who">Lifeder.</span> <span class="src">Primera revolución de la química.</span> <a href="https://www.lifeder.com/primera-revolucion-quimica/">lifeder.com</a></li>
+      <li><span class="who">Editorial Crítica (2007).</span> <span class="src">Lavoisier, A.-L., Tratado elemental de química (ed. de R. Gago), sinopsis.</span> <a href="https://proapi.planetadelibros.com/descargas/sala-prensa-libro/sinopsis-y-biografia/17309/tratado-elemental-de-quimica.pdf">planetadelibros.com</a></li>
+      <li><span class="who">Algor Education.</span> <span class="src">Orígenes de la tabla periódica.</span> <a href="https://cards.algoreducation.com/es/content/p_dhmwBY/origenes-tabla-periodica">algoreducation.com</a></li>
+    </ul>
+
+    <div class="rule" style="margin-top:10mm"></div>
+    <p class="note" style="text-align:center">Comité Aquelarre 2026 · CUCEI · Universidad de Guadalajara<br>S. Delgado · J.A. Gallegos · A.P. García · M.S. Jiménez</p>
+    <p class="note" style="text-align:center; font-family:'Courier New',monospace; font-size:8pt; letter-spacing:3px; text-transform:uppercase; color:#be97df; margin-top:6mm">Created by CTA CUCEI</p>
+  </div>
+  <a class="backtop" href="#indice">&#x21B5; Índice</a>
+</div>
+</body>
+</html>

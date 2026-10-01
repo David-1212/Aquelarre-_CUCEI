@@ -69,7 +69,7 @@
         const elements = [
             '.stat', '.register-info', '.reserve-panel', '.reserve-step',
             '.representation-card', '.about-intro', '.gallery-item',
-            '.conv-card', '.social-card', '.royal-card', '.day-col', '.element-mini'
+            '.conv-card', '.social-card', '.royal-card', '.day-col'
         ];
         const revealElements = document.querySelectorAll(elements.join(','));
         revealElements.forEach(el => el.classList.add('reveal'));
@@ -236,11 +236,26 @@
         medallions.forEach(med => {
             med.addEventListener('mouseenter', () => {
                 activateMedallion(med);
+                setMini(med.dataset.hue);
             });
             med.addEventListener('click', () => {
                 activateMedallion(med);
+                setMini(med.dataset.hue);
             });
         });
+
+        const stage = document.querySelector('.element-stage');
+        if (stage) {
+            stage.addEventListener('mouseleave', () => {
+                setMini(null);
+            });
+        }
+
+        function setMini(hue) {
+            document.querySelectorAll('.element-mini').forEach(mini => {
+                mini.classList.toggle('show', mini.dataset.hue === hue);
+            });
+        }
 
         function activateMedallion(med) {
             medallions.forEach(m => m.classList.remove('active'));
@@ -355,23 +370,46 @@
             const foto = modal.querySelector('.royal-modal-photo img');
             const closeBtn = modal.querySelector('.royal-modal-close');
 
-            const infoTexto = (nombreReal) => {
-                return '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur viverra vestibulum lectus, a tempus nulla feugiat ac. Nunc sed magna ac dolor lacinia.</p>' +
-                       '<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>';
+            const rolTextos = {
+                REINA: 'En la corte alquímica, su causa encarna la esencia del elemento que porta y recuerda a la comunidad que el equilibrio entre los cuatro elementos es el origen de toda obra.',
+                REY: 'Como El Alquimista, inspirado en el arcano de El Mago, une el saber de los cuatro elementos y lo convierte en acción, guiando a la corte hacia el Gran Opus.',
+                PRINCESA: 'Como La Custodia de la Sabiduría, guarda el conocimiento ancestral que conecta la alquimia con el origen de la química, para que ninguna esencia se pierda.'
+            };
+
+            const elementoTex = {
+                'AIRE': 'El aire es el pensamiento en movimiento: la curiosidad que no reposa hasta encontrar respuestas. Como portadora del Conocimiento, invita a preguntar, dudar y descubrir.',
+                'FUEGO': 'El fuego purifica y transmuta: deshace lo viejo para dar paso a lo nuevo. Como portadora de la Transformación, enciende los cambios que nos permiten evolucionar.',
+                'AGUA': 'El agua es origen y renovación: el flujo que conecta a todo ser vivo. Como portadora de la Vida, nutre, adapta y da continuidad a la comunidad.',
+                'TIERRA': 'La tierra es la materia que sostiene y da forma. Como portadora de la Materia, representa las raíces firmes sobre las que se construye toda obra.'
+            };
+
+            const infoTexto = (card) => {
+                const msg = card.querySelector('.royal-message');
+                const partes = [];
+                if (msg && msg.textContent.trim()) {
+                    partes.push('<p class="royal-modal-desc">' + msg.textContent.trim() + '</p>');
+                }
+                const meta = card.querySelector('.royal-element');
+                const etiqueta = meta ? meta.textContent.trim().toUpperCase() : '';
+                const elemento = Object.keys(elementoTex).find(e => etiqueta.indexOf(e) === 0);
+                if (elemento) {
+                    partes.push('<p>' + elementoTex[elemento] + '</p>');
+                }
+                const rol = card.dataset.titulo || '';
+                if (rolTextos[rol]) {
+                    partes.push('<p>' + rolTextos[rol] + '</p>');
+                }
+                return partes.join('');
             };
 
             cards.forEach(card => {
                 card.addEventListener('click', () => {
                     nombre.textContent = card.dataset.nombre || 'Real Anónimo';
                     tag.textContent = card.dataset.titulo || 'REAL';
-                    elemento.textContent = (card.dataset.elemento || '').toUpperCase() + ' · ' + {
-                        fuego: 'Transformación',
-                        aire: 'Conocimiento',
-                        agua: 'Vida',
-                        tierra: 'Materia'
-                    }[card.dataset.elemento] || '';
-                    foto.src = card.dataset.foto || 'assets/royals/cassiopeia-finch.svg';
-                    info.innerHTML = infoTexto();
+                    const elemLabel = card.querySelector('.royal-element');
+                    elemento.textContent = (elemLabel ? elemLabel.textContent.trim() : (card.dataset.elemento || '').toUpperCase());
+                    foto.src = card.dataset.foto || 'assets/royals/dara-de-anda.svg';
+                    info.innerHTML = infoTexto(card);
                     modal.classList.add('open');
                     document.body.style.overflow = 'hidden';
                 });

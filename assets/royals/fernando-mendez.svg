@@ -6,13 +6,13 @@
       <stop offset="100%" stop-color="#141e38"/>
     </radialGradient>
     <radialGradient id="halo" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#4d9fd6" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#4d9fd6" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#E5B675" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#E5B675" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="400" height="400" fill="url(#bg)"/>
   <circle cx="200" cy="200" r="170" fill="url(#halo)"/>
-  <circle cx="200" cy="200" r="150" fill="none" stroke="#4d9fd6" stroke-opacity="0.5" stroke-width="2"/>
+  <circle cx="200" cy="200" r="150" fill="none" stroke="#E5B675" stroke-opacity="0.5" stroke-width="2"/>
   <circle cx="200" cy="200" r="127" fill="none" stroke="#E5B675" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="4 7"/>
-  <text x="200" y="200" font-size="150" fill="#E5B675" text-anchor="middle" dominant-baseline="central" opacity="0.92">&#x2655;</text>
+  <text x="200" y="200" font-size="150" fill="#E5B675" text-anchor="middle" dominant-baseline="central" opacity="0.92">&#x265A;</text>
 </svg>
